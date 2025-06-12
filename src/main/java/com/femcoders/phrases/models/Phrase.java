@@ -8,7 +8,7 @@ public class Phrase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String frase;
+    private String phrase;
     private String author;
 
     public Phrase() {
@@ -23,11 +23,11 @@ public class Phrase {
     }
 
     public String getFrase() {
-        return frase;
+        return phrase;
     }
 
-    public void setFrase(String frase) {
-        this.frase = frase;
+    public void setFrase(String phrase) {
+        this.phrase = phrase;
     }
 
     public String getAuthor() {
