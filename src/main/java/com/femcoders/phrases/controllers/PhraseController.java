@@ -27,4 +27,10 @@ public class PhraseController {
         Phrase createdEvent = phraseService.addPhrase(newEvent);
         return new ResponseEntity<Phrase>(createdEvent, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/phrases{id}")
+    public ResponseEntity<HttpStatus> deletePhrase(@PathVariable Long id) {
+        phraseService.deletePhrase(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
