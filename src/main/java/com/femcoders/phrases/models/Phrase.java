@@ -22,11 +22,11 @@ public class Phrase {
         this.id = id;
     }
 
-    public String getFrase() {
+    public String getPhrase() {
         return phrase;
     }
 
-    public void setFrase(String phrase) {
+    public void setPhrase(String phrase) {
         this.phrase = phrase;
     }
 
