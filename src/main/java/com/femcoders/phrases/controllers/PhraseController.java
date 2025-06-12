@@ -18,19 +18,31 @@ public class PhraseController {
 
     @GetMapping("/phrases")
     public ResponseEntity<List<Phrase>> getAllPhrases() {
-        List<Phrase> events = phraseService.getAllPhrases();
-        return new ResponseEntity<List<Phrase>>(events, HttpStatus.OK);
+        List<Phrase> phrases = phraseService.getAllPhrases();
+        return new ResponseEntity<List<Phrase>>(phrases, HttpStatus.OK);
     }
 
     @PostMapping("/phrases")
-    public ResponseEntity<Phrase> addEvent(@RequestBody Phrase newEvent) {
-        Phrase createdEvent = phraseService.addPhrase(newEvent);
-        return new ResponseEntity<Phrase>(createdEvent, HttpStatus.CREATED);
+    public ResponseEntity<Phrase> addPhrase(@RequestBody Phrase newPhrase) {
+        Phrase createdPhrase = phraseService.addPhrase(newPhrase);
+        return new ResponseEntity<Phrase>(createdPhrase, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/phrases/{id}")
     public ResponseEntity<HttpStatus> deletePhrase(@PathVariable Long id) {
         phraseService.deletePhrase(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/phrases/{id}")
+    public ResponseEntity<Phrase> getPhrase(@PathVariable Long id) {
+        Phrase phrases = phraseService.findById(id);
+        return new ResponseEntity<Phrase>(phrases, HttpStatus.OK);
+    }
+
+    @PutMapping("/phrases/{id}")
+    public ResponseEntity<Phrase> updatePhrase(@PathVariable Long id, @RequestBody Phrase updatedPhrase){
+        Phrase updatePhrase = phraseService.updatePhrase(id, updatedPhrase);
+        return new ResponseEntity<Phrase>(updatePhrase, HttpStatus.RESET_CONTENT);
     }
 }

@@ -25,4 +25,15 @@ public class PhraseService {
     public void deletePhrase(Long id) {
         phraseRepository.deleteById(id);
     }
+
+    public Phrase updatePhrase(Long id, Phrase updatedPhrase) {
+        Phrase existingPhrase = findById(id);
+        existingPhrase.setPhrase(updatedPhrase.getPhrase());
+        existingPhrase.setAuthor(updatedPhrase.getAuthor());
+        return phraseRepository.save(existingPhrase);
+    }
+
+    public Phrase findById(Long id) {
+        return phraseRepository.findById(id).orElse(null);
+    }
 }
