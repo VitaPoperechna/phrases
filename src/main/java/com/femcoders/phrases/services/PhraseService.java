@@ -21,4 +21,8 @@ public class PhraseService {
     public Phrase addPhrase(Phrase newPhrase){
         return phraseRepository.save(newPhrase);
     }
+
+    public void deletePhrase(Long id) {
+        phraseRepository.deleteById(id);
+    }
 }
