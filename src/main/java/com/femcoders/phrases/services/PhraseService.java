@@ -1,4 +1,4 @@
 package com.femcoders.phrases.services;
 
-public class PhaseService {
+public class PhraseService {
 }
