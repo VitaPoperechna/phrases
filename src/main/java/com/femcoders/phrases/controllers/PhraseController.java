@@ -4,10 +4,7 @@ import com.femcoders.phrases.models.Phrase;
 import com.femcoders.phrases.services.PhraseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +28,9 @@ public class PhraseController {
         return new ResponseEntity<Phrase>(createdEvent, HttpStatus.CREATED);
     }
 
-
+    @DeleteMapping("/phrases{id}")
+    public ResponseEntity<HttpStatus> deletePhrase(@PathVariable Long id) {
+        phraseService.deletePhrase(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
