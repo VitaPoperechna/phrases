@@ -19,13 +19,13 @@ public class PhraseController {
     @GetMapping("/phrases")
     public ResponseEntity<List<Phrase>> getAllPhrases() {
         List<Phrase> phrases = phraseService.getAllPhrases();
-        return new ResponseEntity<List<Phrase>>(phrases, HttpStatus.OK);
+        return new ResponseEntity<>(phrases, HttpStatus.OK);
     }
 
     @PostMapping("/phrases")
     public ResponseEntity<Phrase> addPhrase(@RequestBody Phrase newPhrase) {
         Phrase createdPhrase = phraseService.addPhrase(newPhrase);
-        return new ResponseEntity<Phrase>(createdPhrase, HttpStatus.CREATED);
+        return new ResponseEntity<>(createdPhrase, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/phrases/{id}")
@@ -37,12 +37,12 @@ public class PhraseController {
     @GetMapping("/phrases/{id}")
     public ResponseEntity<Phrase> getPhrase(@PathVariable Long id) {
         Phrase phrases = phraseService.findById(id);
-        return new ResponseEntity<Phrase>(phrases, HttpStatus.OK);
+        return new ResponseEntity<>(phrases, HttpStatus.OK);
     }
 
     @PutMapping("/phrases/{id}")
     public ResponseEntity<Phrase> updatePhrase(@PathVariable Long id, @RequestBody Phrase updatedPhrase){
         Phrase updatePhrase = phraseService.updatePhrase(id, updatedPhrase);
-        return new ResponseEntity<Phrase>(updatePhrase, HttpStatus.RESET_CONTENT);
+        return new ResponseEntity<>(updatePhrase, HttpStatus.OK);
     }
 }
